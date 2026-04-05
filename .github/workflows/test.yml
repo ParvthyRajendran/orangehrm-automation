@@ -9,6 +9,11 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -34,3 +39,14 @@ jobs:
         with:
           name: allure-report
           path: target/site/allure-maven-plugin
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: target/site/allure-maven-plugin
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
