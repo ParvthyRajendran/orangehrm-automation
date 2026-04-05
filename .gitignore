@@ -35,4 +35,9 @@ build/
 .vscode/
 
 ### Mac OS ###
-.DS_StoreCLAUDE.md
+.DS_Store
+CLAUDE.md
+
+### Allure ###
+allure-results/
+.allure/

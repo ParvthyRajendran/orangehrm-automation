@@ -38,6 +38,7 @@ public class EmployeePage {
     public void clickSaveWithBlankFields() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(firstNameField)).clear();
         wait.until(ExpectedConditions.visibilityOfElementLocated(lastNameField)).clear();
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector(".oxd-form-loader")));
         wait.until(ExpectedConditions.elementToBeClickable(saveButton)).click();
     }
 
