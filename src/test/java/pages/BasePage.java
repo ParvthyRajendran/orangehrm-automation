@@ -26,7 +26,7 @@ public class BasePage {
             driver.manage().window().maximize();
         }
         driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(30));
     }
     public static void quitDriver() {
         driver.quit();

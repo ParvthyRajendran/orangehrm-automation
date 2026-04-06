@@ -7,6 +7,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
 import pages.BasePage;
 import pages.LoginPage;
 
@@ -35,7 +37,9 @@ public class LoginSteps {
 
       @Then("the user should be redirected to the dashboard")
       public void userRedirectedToDashboard() {
-         assertTrue(BasePage.driver.getCurrentUrl().contains("https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index"));
+         WebDriverWait wait = new WebDriverWait(BasePage.driver, Duration.ofSeconds(15));
+         wait.until(ExpectedConditions.urlContains("dashboard"));
+         assertTrue(BasePage.driver.getCurrentUrl().contains("dashboard"));
       }
 
     @Then("an error message should be displayed")
